@@ -53,14 +53,18 @@ class GoidaStaticTests(unittest.TestCase):
     def test_visual_motifs_and_modern_cyrillic(self) -> None:
         html = read("index.html")
         css = read("css/style.css") + read("css/fonts.css")
-        self.assertIn("Роскомнадзор", html)
         self.assertTrue(
             "флаг" in html.lower() or "tricolor" in html.lower() or "flag-ru" in html,
             "Russian flag motif missing",
         )
+        self.assertIn("Не работает Telegram", html)
+        self.assertIn("hero_vpn_click", html)
+        self.assertIn("hero_proxy_click", html)
         self.assertIn("@font-face", css)
         self.assertNotIn("fonts.googleapis.com", html)
         self.assertNotIn("fonts.googleapis.com", css)
+        self.assertNotIn("Не для чужих преступлений", html)
+        self.assertNotIn("GitHub Pages", html)
 
     def test_scripts_are_browser_safe(self) -> None:
         js = read("js/app.js")
