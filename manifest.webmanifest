@@ -7,6 +7,6 @@
   "theme_color": "#F6F6F3",
   "lang": "ru",
   "icons": [
-    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+    { "src": "assets/img/favicon.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
