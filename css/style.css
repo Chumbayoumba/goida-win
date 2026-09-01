@@ -169,8 +169,13 @@ h1 {
   height: 11px;
   margin-top: -5px;
   background: #c41e3a;
-  transform: rotate(-36deg);
+  transform: rotate(-36deg) scaleX(0);
+  transform-origin: left center;
+  animation: strike 0.4s ease-out 0.15s forwards;
   pointer-events: none;
+}
+@keyframes strike {
+  to { transform: rotate(-36deg) scaleX(1); }
 }
 .note { margin: 0; color: var(--mute); font-size: 15px; }
 .split {
@@ -254,9 +259,6 @@ details p { margin: 6px 0 8px; color: var(--mute); }
   right: 0;
   bottom: 0;
   z-index: 20;
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 0;
   border-top: 2px solid var(--ink);
   background: var(--paper);
   padding: 0 0 env(safe-area-inset-bottom);
@@ -265,8 +267,8 @@ details p { margin: 6px 0 8px; color: var(--mute); }
   border: 0;
   border-radius: 0;
   min-height: 52px;
+  width: 100%;
 }
-.sticky .btn-fill { border-right: 2px solid var(--paper); }
 @media (min-width: 720px) {
   .cta-row { flex-direction: row; }
   .cta-row .btn-fill { flex: 1.5; }
@@ -278,4 +280,5 @@ details p { margin: 6px 0 8px; color: var(--mute); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .copy { transition: none; }
+  .stamp::after { animation: none; transform: rotate(-36deg) scaleX(1); }
 }

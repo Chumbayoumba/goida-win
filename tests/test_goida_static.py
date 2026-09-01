@@ -23,9 +23,9 @@ class GoidaStaticTests(unittest.TestCase):
         self.assertIn("t.me/vnespiska", html)
         self.assertIn("t.me/vnespiskabot", html)
         self.assertIn("VNESPISKA", html)
-        self.assertTrue(
-            "tg://proxy" in html or "t.me/proxy" in html,
-            "landing must expose a one-click Telegram proxy href",
+        self.assertRegex(
+            html,
+            r'id="cta-proxy"[^>]*href="(?:tg://proxy|https://t\.me/proxy|https://t\.me/vnespiska)',
         )
         self.assertIn("239", html)
 

@@ -16,6 +16,7 @@
     var i;
     for (i = 0; i < nodes.length; i++) {
       var el = nodes[i];
+      if (el.getAttribute("data-proxy-stub") === "1") continue;
       var kind = el.getAttribute("data-proxy-kind") || "tg";
       el.setAttribute("href", kind === "https" ? links.https : links.tg);
     }
