@@ -6,9 +6,9 @@
   src: url("../assets/fonts/unbounded.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Manrope";
+  font-family: "Golos Text";
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url("../assets/fonts/manrope.woff2") format("woff2");
+  src: url("../assets/fonts/golos.woff2") format("woff2");
 }
