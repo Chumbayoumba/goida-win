@@ -1,0 +1,20 @@
+# GOIDA.WIN
+
+> Не работает Telegram или сайты. Прокси для Telegram. VPN для YouTube, WhatsApp и остального интернета. 239 ₽, код VNESPISKA.
+
+Сайт: https://goida.win/
+
+## Главное
+
+- [Главная](https://goida.win/): выбор Telegram (прокси) или весь интернет (VPN)
+
+## Действия
+
+- Прокси Telegram: https://t.me/vnespiska
+- VPN в боте: https://t.me/vnespiskabot
+- Промокод: VNESPISKA (239 ₽ вместо 299 ₽)
+
+## Для людей
+
+Если нужен только Telegram - прокси в канале.
+Если не открываются YouTube и сайты - VPN в боте.

@@ -7,5 +7,14 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Host: https://goida.win
 Sitemap: https://goida.win/sitemap.xml

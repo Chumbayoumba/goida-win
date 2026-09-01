@@ -33,13 +33,20 @@ class GoidaStaticTests(unittest.TestCase):
         html = read("index.html")
         robots = read("robots.txt")
         sitemap = read("sitemap.xml")
+        llms = read("llms.txt")
         self.assertIn("goida.win", html)
         self.assertIn("canonical", html.lower())
         self.assertIn("og:", html.lower())
         self.assertIn("schema.org", html)
+        self.assertIn("SoftwareApplication", html)
+        self.assertIn("yandex-verification", html)
+        self.assertIn("112149595", html)
+        self.assertIn("G-YVMQ4T6HEQ", html)
         self.assertIn("goida.win", robots)
         self.assertIn("goida.win", sitemap)
         self.assertIn("application/ld+json", html)
+        self.assertIn("goida.win", llms)
+        self.assertIn("5ac758ea9dd240acbfa4d18e67fd497d", read("5ac758ea9dd240acbfa4d18e67fd497d.txt"))
 
     def test_origin_is_custom_domain_not_raw_ip(self) -> None:
         html = read("index.html")
@@ -71,6 +78,7 @@ class GoidaStaticTests(unittest.TestCase):
         self.assertNotIn("module.exports", js)
         self.assertNotIn("require(", js)
         self.assertNotIn("process.exit", js)
+        self.assertIn("reachGoal", js)
 
     def test_funnel_payload_matches_copy(self) -> None:
         data = json.loads(read("data/funnel.json"))

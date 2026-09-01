@@ -14,6 +14,9 @@
     if (typeof window.gtag === "function") {
       window.gtag("event", name, extra || {});
     }
+    if (typeof window.ym === "function") {
+      window.ym(112149595, "reachGoal", name);
+    }
   }
 
   track("page_view", {
