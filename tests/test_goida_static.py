@@ -67,6 +67,9 @@ class GoidaStaticTests(unittest.TestCase):
         self.assertIn("Не работает Telegram", html)
         self.assertIn("hero_vpn_click", html)
         self.assertIn("hero_proxy_click", html)
+        self.assertIn('id="goida-shout"', html)
+        self.assertIn("assets/audio/goida.mp3", html)
+        self.assertTrue((SITE / "assets" / "audio" / "goida.mp3").is_file())
         self.assertIn("@font-face", css)
         self.assertNotIn("fonts.googleapis.com", html)
         self.assertNotIn("fonts.googleapis.com", css)
@@ -79,6 +82,7 @@ class GoidaStaticTests(unittest.TestCase):
         self.assertNotIn("require(", js)
         self.assertNotIn("process.exit", js)
         self.assertIn("reachGoal", js)
+        self.assertIn("audio.play", js)
 
     def test_funnel_payload_matches_copy(self) -> None:
         data = json.loads(read("data/funnel.json"))

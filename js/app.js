@@ -105,4 +105,19 @@
       }
     });
   }
+
+  var shout = document.getElementById("goida-shout");
+  var audio = document.getElementById("goida-audio");
+  if (shout && audio) {
+    shout.addEventListener("click", function () {
+      audio.currentTime = 0;
+      var play = audio.play();
+      if (play && typeof play.catch === "function") {
+        play.catch(function () {});
+      }
+      shout.classList.remove("is-yell");
+      void shout.offsetWidth;
+      shout.classList.add("is-yell");
+    });
+  }
 })();

@@ -134,6 +134,36 @@ h1 {
 }
 .btn-fill:hover { background: #2a2a2a; }
 .btn-line:hover { background: var(--ink); color: var(--paper); }
+.goida-btn {
+  display: block;
+  width: 100%;
+  margin: 14px 0 0;
+  min-height: 92px;
+  padding: 12px 16px;
+  border: 0;
+  background: #c41e3a;
+  color: #fff;
+  font-family: var(--display);
+  font-size: clamp(40px, 14vw, 80px);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  cursor: pointer;
+  animation: goida-pulse 1.5s ease-in-out infinite;
+}
+.goida-btn:hover { background: #d62848; }
+.goida-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.goida-btn.is-yell { animation: goida-yell 0.42s ease-out; }
+@keyframes goida-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(196, 30, 58, 0.55); }
+  50% { transform: scale(1.04); box-shadow: 0 0 0 14px rgba(196, 30, 58, 0); }
+}
+@keyframes goida-yell {
+  0% { transform: scale(1) rotate(0deg); }
+  20% { transform: scale(1.14) rotate(-4deg); }
+  45% { transform: scale(1.08) rotate(4deg); }
+  70% { transform: scale(1.12) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
 .situations { margin: 28px 0; }
 h2 {
   font-family: var(--display);
@@ -284,4 +314,6 @@ details p { margin: 6px 0 8px; color: var(--mute); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .copy { transition: none; }
+  .goida-btn { animation: none; }
+  .goida-btn.is-yell { animation: none; }
 }
