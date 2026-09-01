@@ -192,10 +192,18 @@ h2 {
   display: grid;
   gap: 16px;
   margin: 8px 0 28px;
+  align-items: stretch;
 }
 .card {
   border: 2px solid var(--ink);
   padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.card > .btn,
+.card > .cta-row {
+  margin-top: auto;
 }
 .kicker {
   margin: 0 0 6px;
