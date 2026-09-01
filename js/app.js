@@ -120,13 +120,16 @@
 
   var shout = document.getElementById("goida-shout");
   var audio = document.getElementById("goida-audio");
-  if (shout && audio) {
-    shout.addEventListener("click", function () {
+  if (shout) {
+    shout.addEventListener("click", function (ev) {
+      if (ev && ev.preventDefault) ev.preventDefault();
       track("goida_shout");
-      audio.currentTime = 0;
-      var play = audio.play();
-      if (play && typeof play.catch === "function") {
-        play.catch(function () {});
+      if (audio) {
+        audio.currentTime = 0;
+        var play = audio.play();
+        if (play && typeof play.catch === "function") {
+          play.catch(function () {});
+        }
       }
       shout.classList.remove("is-yell");
       void shout.offsetWidth;
