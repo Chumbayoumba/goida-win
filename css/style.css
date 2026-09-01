@@ -134,11 +134,6 @@ h1 {
 }
 .btn-fill:hover { background: #2a2a2a; }
 .btn-line:hover { background: var(--ink); color: var(--paper); }
-.tg-feed {
-  margin-top: 14px;
-  min-height: 80px;
-}
-.tg-feed iframe { width: 100% !important; }
 .goida-btn {
   display: block;
   width: 100%;
