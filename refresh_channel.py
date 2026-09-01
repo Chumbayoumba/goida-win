@@ -47,6 +47,9 @@ def parse_posts(raw: str) -> list[dict]:
             text = re.sub(r"<br\s*/?>", " ", text_m.group(1), flags=re.I)
             text = re.sub(r"<[^>]+>", "", text)
             text = html_lib.unescape(re.sub(r"\s+", " ", text)).strip()
+            text = re.sub(r"tg://proxy\?\S+", "", text)
+            text = re.sub(r"https://t\.me/proxy\?\S+", "", text)
+            text = re.sub(r"\s+", " ", text).strip()
         items.append(
             {
                 "id": pid,
