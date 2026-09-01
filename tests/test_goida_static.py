@@ -150,6 +150,8 @@ class GoidaStaticTests(unittest.TestCase):
             self.assertIn("https://goida.win/" + rel.split("/")[0] + "/", html)
             self.assertIn(h1_bit, html)
             self.assertIn(body_bit.lower(), html.lower())
+            self.assertGreater(len(html.encode("utf-8")), 4000)
+            self.assertGreaterEqual(html.count("<h2"), 3)
             self.assertIn("t.me/vnespiska", html)
             self.assertTrue("magnit.help" in html or "Geodema_bot" in html)
             slug = rel.split("/")[0]
