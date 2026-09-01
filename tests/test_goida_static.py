@@ -90,6 +90,86 @@ class GoidaStaticTests(unittest.TestCase):
         self.assertIn("vnespiska", data["channel"])
         self.assertIn("magnit.help", data["vpn_web"])
         self.assertIn("Geodema_bot", data["vpn_bot"])
+        self.assertEqual(data.get("promo"), "VNESPISKA")
+        self.assertEqual(int(data.get("price_promo")), 239)
+
+    def test_v2_hub_copy_and_actions(self) -> None:
+        html = read("index.html")
+        self.assertRegex(html, r"<title>Не работает Telegram или сайты\? Прокси и VPN \| GOIDA\.WIN</title>")
+        self.assertRegex(html, r"<h1[^>]*>Не работает Telegram или сайты\?</h1>")
+        self.assertIn(
+            'content="Не работает Telegram? Получи бесплатный прокси в @vnespiska. Не открываются YouTube и сайты? Подключи VPN в браузере или Telegram."',
+            html,
+        )
+        self.assertIn("ПОЛУЧИТЬ ПРОКСИ", html)
+        self.assertIn("ПОДКЛЮЧИТЬ VPN", html)
+        self.assertIn("239", html)
+        self.assertIn("VNESPISKA", html)
+        self.assertNotIn("Хочу открыть всё", html)
+        self.assertRegex(html, r"<h2[^>]*>Частые вопросы</h2>")
+        self.assertGreaterEqual(html.count("<details"), 6)
+        self.assertLessEqual(html.count("<details"), 8)
+
+    def test_goida_is_choice_cta(self) -> None:
+        html = read("index.html")
+        css = read("css/style.css")
+        js = read("js/app.js")
+        self.assertIn("ГОЙДА", html)
+        self.assertRegex(html, r'<a[^>]+href="#choice"[^>]*>[\s\S]*ГОЙДА')
+        self.assertIn("goida_click", html + js)
+        self.assertIn("goida_shout", html + js)
+        self.assertNotRegex(html, r'<img[^>]+(goida|shout)[^>]+\.(jpg|png|webp)', re.I)
+        self.assertIn("goida-btn", css)
+        self.assertIn("60px", css)
+        self.assertIn("70px", css)
+
+    def test_p1_cluster_pages(self) -> None:
+        pages = {
+            "telegram-ne-rabotaet/index.html": (
+                "Не работает Telegram",
+                "прокси",
+            ),
+            "proxy-telegram/index.html": (
+                "Прокси для Telegram",
+                "подключ",
+            ),
+            "vpn-telegram/index.html": (
+                "VPN для Telegram",
+                "VPN",
+            ),
+            "vpn-youtube/index.html": (
+                "YouTube",
+                "VPN",
+            ),
+        }
+        hub = read("index.html")
+        for rel, (h1_bit, body_bit) in pages.items():
+            html = read(rel)
+            self.assertIn("<html lang=\"ru\">", html)
+            self.assertIn("canonical", html.lower())
+            self.assertIn("https://goida.win/" + rel.split("/")[0] + "/", html)
+            self.assertIn(h1_bit, html)
+            self.assertIn(body_bit.lower(), html.lower())
+            self.assertIn("t.me/vnespiska", html)
+            self.assertTrue("magnit.help" in html or "Geodema_bot" in html)
+            slug = rel.split("/")[0]
+            self.assertIn("/" + slug + "/", hub)
+
+    def test_sitemap_is_hub_plus_p1_only(self) -> None:
+        xml = read("sitemap.xml")
+        locs = re.findall(r"<loc>([^<]+)</loc>", xml)
+        expected = {
+            "https://goida.win/",
+            "https://goida.win/telegram-ne-rabotaet/",
+            "https://goida.win/proxy-telegram/",
+            "https://goida.win/vpn-telegram/",
+            "https://goida.win/vpn-youtube/",
+        }
+        self.assertEqual(set(locs), expected)
+        self.assertTrue(all("utm" not in loc for loc in locs))
+        robots = read("robots.txt")
+        self.assertIn("Sitemap: https://goida.win/sitemap.xml", robots)
+        self.assertNotIn("Disallow: /", robots)
 
 
 if __name__ == "__main__":

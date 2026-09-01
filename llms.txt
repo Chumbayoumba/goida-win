@@ -7,6 +7,10 @@
 ## Главное
 
 - [Главная](https://goida.win/): Telegram (прокси) или весь интернет (VPN)
+- [Telegram не работает](https://goida.win/telegram-ne-rabotaet/)
+- [Прокси для Telegram](https://goida.win/proxy-telegram/)
+- [VPN для Telegram](https://goida.win/vpn-telegram/)
+- [Не открывается YouTube](https://goida.win/vpn-youtube/)
 
 ## Действия
 

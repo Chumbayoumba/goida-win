@@ -135,18 +135,23 @@ h1 {
 .btn-fill:hover { background: #2a2a2a; }
 .btn-line:hover { background: var(--ink); color: var(--paper); }
 .goida-btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   margin: 14px 0 0;
-  min-height: 92px;
-  padding: 12px 16px;
+  min-height: 60px;
+  height: 72px;
+  max-height: 90px;
+  padding: 8px 16px;
   border: 0;
   background: #c41e3a;
   color: #fff;
   font-family: var(--display);
-  font-size: clamp(40px, 14vw, 80px);
+  font-size: clamp(28px, 8vw, 40px);
   letter-spacing: 0.06em;
   line-height: 1;
+  text-decoration: none;
   cursor: pointer;
   animation: goida-pulse 1.5s ease-in-out infinite;
 }
@@ -306,18 +311,31 @@ details p { margin: 6px 0 8px; color: var(--mute); }
   background: var(--paper);
   padding: 0 0 env(safe-area-inset-bottom);
 }
+.sticky[hidden] { display: none !important; }
 .sticky .btn {
   border: 0;
   min-height: 52px;
 }
+.cluster {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+.prose { max-width: 40em; }
+.prose p { margin: 0 0 12px; }
+.prose ul { margin: 0 0 16px; padding-left: 1.2em; }
 @media (max-width: 520px) {
   .jump { display: none; }
 }
 @media (min-width: 720px) {
   .cta-row { flex-direction: row; }
   .cards { grid-template-columns: 1fr 1fr; align-items: stretch; }
-  .sticky { display: none; }
+  .sticky { display: none !important; }
   .page { padding-bottom: 40px; }
+  .goida-btn {
+    min-height: 70px;
+    height: 88px;
+    max-height: 110px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

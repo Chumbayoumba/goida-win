@@ -25,14 +25,7 @@
     utm_campaign: (location.search.match(/utm_campaign=([^&]+)/) || [])[1] || ""
   });
 
-  if (/(?:\?|&)hero=b(?:&|$)/.test(location.search)) {
-    var title = document.getElementById("hero-title");
-    var lead = document.getElementById("hero-lead");
-    if (title) title.textContent = "Интернет опять решили сломать?";
-    if (lead) lead.innerHTML = "Telegram → прокси.<br>YouTube, сайты, WhatsApp → VPN.";
-  }
-
-  function withUtm(href) {
+  function withUtm(href, campaign, content) {
     var url;
     try { url = new URL(href, location.href); } catch (e) { return href; }
     if (url.hostname !== "t.me" && url.hostname !== "magnit.help") return href;
@@ -43,13 +36,32 @@
     });
     if (!url.searchParams.get("utm_source")) url.searchParams.set("utm_source", "goida");
     if (!url.searchParams.get("utm_medium")) url.searchParams.set("utm_medium", "site");
+    if (campaign && !url.searchParams.get("utm_campaign")) url.searchParams.set("utm_campaign", campaign);
+    if (content && !url.searchParams.get("utm_content")) url.searchParams.set("utm_content", content);
     return url.toString();
   }
 
   var links = document.querySelectorAll('a[href*="t.me/"], a[href*="magnit.help"]');
   var i;
   for (i = 0; i < links.length; i++) {
-    links[i].setAttribute("href", withUtm(links[i].getAttribute("href")));
+    links[i].setAttribute(
+      "href",
+      withUtm(
+        links[i].getAttribute("href"),
+        links[i].getAttribute("data-utm-campaign"),
+        links[i].getAttribute("data-utm-content")
+      )
+    );
+  }
+
+  var sticky = document.querySelector(".sticky");
+  if (sticky) {
+    var onScroll = function () {
+      if (window.scrollY > 400) sticky.removeAttribute("hidden");
+      else sticky.setAttribute("hidden", "");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
   }
 
   document.addEventListener("click", function (ev) {
@@ -110,6 +122,7 @@
   var audio = document.getElementById("goida-audio");
   if (shout && audio) {
     shout.addEventListener("click", function () {
+      track("goida_shout");
       audio.currentTime = 0;
       var play = audio.play();
       if (play && typeof play.catch === "function") {

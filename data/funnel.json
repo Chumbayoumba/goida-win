@@ -2,5 +2,8 @@
   "domain": "goida.win",
   "channel": "https://t.me/vnespiska",
   "vpn_web": "https://magnit.help/p2f9f6fab",
-  "vpn_bot": "https://t.me/Geodema_bot?start=p_2f9f6fab"
+  "vpn_bot": "https://t.me/Geodema_bot?start=p_2f9f6fab",
+  "promo": "VNESPISKA",
+  "price_promo": 239,
+  "price_full": 299
 }
