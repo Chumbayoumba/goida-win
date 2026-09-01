@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
 """Swap the featured goida.win proxy when the current slot is dead.
 
-Intended hosts:
-  * GitHub Actions (best-effort schedule; not a 5-minute SLA)
-  * VDS_38904 RU probe box (preferred: sees TSPU the way users do)
-
-Never run this on 87.121.82.25 as the *site origin* — the site stays on
-GitHub Pages. This job only writes ``data/proxy.json`` (+ optional HTML hrefs).
+Runs on GitHub Actions (best-effort schedule). Writes ``data/proxy.json``
+and optional HTML hrefs. The site itself stays on GitHub Pages.
 """
 from __future__ import annotations
 

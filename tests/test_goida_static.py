@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -40,15 +41,14 @@ class GoidaStaticTests(unittest.TestCase):
         self.assertIn("goida.win", sitemap)
         self.assertIn("application/ld+json", html)
 
-    def test_origin_is_not_product_vps(self) -> None:
+    def test_origin_is_custom_domain_not_raw_ip(self) -> None:
         html = read("index.html")
         robots = read("robots.txt")
         sitemap = read("sitemap.xml")
         cname = read("CNAME")
         blob = html + robots + sitemap + cname
-        self.assertNotIn("87.121.82.25", blob)
-        self.assertNotIn("http://87.121.82.25", blob)
-        self.assertNotIn("https://87.121.82.25", blob)
+        self.assertIn("goida.win", blob)
+        self.assertIsNone(re.search(r"https?://\d{1,3}(?:\.\d{1,3}){3}", blob))
 
     def test_visual_motifs_and_modern_cyrillic(self) -> None:
         html = read("index.html")
