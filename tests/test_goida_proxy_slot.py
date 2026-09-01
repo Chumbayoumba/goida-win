@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -124,6 +125,10 @@ class ProxySlotTests(unittest.TestCase):
         html = (
             '<a id="cta-proxy" href="tg://proxy?server=old&port=1&secret=eeold">x</a>'
             '<a id="cta-proxy-https" href="https://t.me/proxy?server=old&port=1&secret=eeold">y</a>'
+            '<nav class="sticky">'
+            '<a class="btn btn-gold" href="tg://proxy?server=old&port=1&secret=eeold" '
+            'data-proxy-slot="featured" data-proxy-kind="tg">Прокси</a>'
+            "</nav>"
         )
         slot = {
             "server": "new.example.net",
@@ -137,7 +142,36 @@ class ProxySlotTests(unittest.TestCase):
             'id="cta-proxy-https" href="https://t.me/proxy?server=new.example.net&port=9443&secret=eenew"',
             out,
         )
+        self.assertIn(
+            'href="tg://proxy?server=new.example.net&port=9443&secret=eenew" '
+            'data-proxy-slot="featured" data-proxy-kind="tg"',
+            out,
+        )
         self.assertNotIn("server=old", out)
+
+    def test_apply_slot_rewrites_every_shipped_data_proxy_slot(self) -> None:
+        html = (SITE / "index.html").read_text(encoding="utf-8")
+        current = read_slot(SITE / "data" / "proxy.json")
+        old_server = str(current["server"])
+        slot = {
+            "server": "fresh.example.net",
+            "port": 9443,
+            "secret": "eefresh",
+            **build_links("fresh.example.net", 9443, "eefresh"),
+        }
+        out = apply_slot_to_html(html, slot)
+        tags = re.findall(r"<a\b[^>]*data-proxy-slot[^>]*>", out)
+        self.assertGreaterEqual(len(tags), 3)
+        for tag in tags:
+            self.assertIn("fresh.example.net", tag)
+            self.assertNotIn(old_server, tag)
+        self.assertTrue(any('data-proxy-kind="tg"' in t and "fresh.example.net" in t for t in tags))
+        self.assertTrue(any('data-proxy-kind="https"' in t and "fresh.example.net" in t for t in tags))
+        sticky_start = out.find('class="sticky"')
+        self.assertNotEqual(sticky_start, -1)
+        sticky_chunk = out[sticky_start : sticky_start + 800]
+        self.assertIn("fresh.example.net", sticky_chunk)
+        self.assertNotIn(old_server, sticky_chunk)
 
 
 if __name__ == "__main__":

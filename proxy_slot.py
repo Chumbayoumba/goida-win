@@ -115,23 +115,28 @@ def refresh_featured(
     return current
 
 
+_A_TAG = re.compile(r"<a\b[^>]*>", re.IGNORECASE)
+
+
 def apply_slot_to_html(html: str, slot: dict[str, Any]) -> str:
     links = build_links(str(slot["server"]), int(slot["port"]), str(slot["secret"]))
     tg = slot.get("tg_link") or links["tg_link"]
     https = slot.get("https_link") or links["https_link"]
-    html = re.sub(
-        r'(id="cta-proxy"\s+href=")[^"]*"',
-        r"\1" + tg + '"',
-        html,
-        count=1,
-    )
-    html = re.sub(
-        r'(id="cta-proxy-https"\s+href=")[^"]*"',
-        r"\1" + https + '"',
-        html,
-        count=1,
-    )
-    return html
+
+    def _rewrite(match: re.Match[str]) -> str:
+        tag = match.group(0)
+        has_slot = "data-proxy-slot" in tag
+        is_https_id = 'id="cta-proxy-https"' in tag
+        is_tg_id = 'id="cta-proxy"' in tag and not is_https_id
+        if not (has_slot or is_tg_id or is_https_id):
+            return tag
+        use_https = is_https_id or 'data-proxy-kind="https"' in tag
+        href = https if use_https else tg
+        if re.search(r'\bhref="[^"]*"', tag):
+            return re.sub(r'\bhref="[^"]*"', f'href="{href}"', tag, count=1)
+        return tag[:-1] + f' href="{href}">'
+
+    return _A_TAG.sub(_rewrite, html)
 
 
 def tcp_probe(server: str, port: int, secret: str = "", timeout: float = 4.0) -> bool:
