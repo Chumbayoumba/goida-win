@@ -21,13 +21,13 @@ class GoidaStaticTests(unittest.TestCase):
     def test_funnel_strings_on_landing(self) -> None:
         html = read("index.html")
         self.assertIn("t.me/vnespiska", html)
-        self.assertIn("t.me/vnespiskabot", html)
-        self.assertIn("VNESPISKA", html)
+        self.assertIn("magnit.help/p2f9f6fab", html)
+        self.assertIn("Geodema_bot", html)
         self.assertRegex(
             html,
-            r'id="cta-proxy"[^>]*href="(?:tg://proxy|https://t\.me/proxy|https://t\.me/vnespiska)',
+            r'id="cta-proxy"[^>]*href="https://t\.me/vnespiska',
         )
-        self.assertIn("239", html)
+        self.assertNotIn("tg://proxy", html)
 
     def test_seo_mentions_goida_win(self) -> None:
         html = read("index.html")
@@ -87,10 +87,9 @@ class GoidaStaticTests(unittest.TestCase):
     def test_funnel_payload_matches_copy(self) -> None:
         data = json.loads(read("data/funnel.json"))
         self.assertEqual(data["domain"], "goida.win")
-        self.assertEqual(data["promo"], "VNESPISKA")
-        self.assertEqual(data["price_promo"], 239)
         self.assertIn("vnespiska", data["channel"])
-        self.assertIn("vnespiskabot", data["bot"])
+        self.assertIn("magnit.help", data["vpn_web"])
+        self.assertIn("Geodema_bot", data["vpn_bot"])
 
 
 if __name__ == "__main__":

@@ -35,7 +35,7 @@
   function withUtm(href) {
     var url;
     try { url = new URL(href, location.href); } catch (e) { return href; }
-    if (url.hostname !== "t.me") return href;
+    if (url.hostname !== "t.me" && url.hostname !== "magnit.help") return href;
     var params = new URLSearchParams(location.search);
     ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach(function (key) {
       var val = params.get(key);
@@ -46,11 +46,31 @@
     return url.toString();
   }
 
-  var links = document.querySelectorAll('a[href*="t.me/"]');
+  var links = document.querySelectorAll('a[href*="t.me/"], a[href*="magnit.help"]');
   var i;
   for (i = 0; i < links.length; i++) {
     links[i].setAttribute("href", withUtm(links[i].getAttribute("href")));
   }
+
+  fetch("data/channel-feed.json", { cache: "no-store" }).then(function (res) {
+    return res.ok ? res.json() : null;
+  }).then(function (feed) {
+    var box = document.getElementById("tg-feed");
+    if (!box || !feed || !feed.posts || !feed.posts.length) return;
+    var pick = null;
+    var p;
+    for (p = feed.posts.length - 1; p >= 0; p--) {
+      if (feed.posts[p].has_proxy && feed.posts[p].id) { pick = feed.posts[p]; break; }
+    }
+    if (!pick) pick = feed.posts[feed.posts.length - 1];
+    if (!pick || !pick.id) return;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://telegram.org/js/telegram-widget.js?22";
+    s.setAttribute("data-telegram-post", pick.id);
+    s.setAttribute("data-width", "100%");
+    box.appendChild(s);
+  }).catch(function () {});
 
   document.addEventListener("click", function (ev) {
     var el = ev.target.closest("[data-track]");
