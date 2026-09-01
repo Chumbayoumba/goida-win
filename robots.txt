@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Host: https://goida.win
+Sitemap: https://goida.win/sitemap.xml

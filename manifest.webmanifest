@@ -1,0 +1,12 @@
+{
+  "name": "ГОЙДА.WIN",
+  "short_name": "ГОЙДА",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0E14",
+  "theme_color": "#0B0E14",
+  "lang": "ru",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
