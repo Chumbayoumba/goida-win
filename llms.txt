@@ -1,19 +1,25 @@
 # GOIDA.WIN
 
-> Не работает Telegram или сайты. Прокси в канале. VPN в браузере или в боте.
+> Telegram not working / Telegram не работает. Free MTProto proxy in the channel. VPN for YouTube and websites.
 
-Сайт: https://goida.win/
+Site: https://goida.win/
+GitHub: https://github.com/Chumbayoumba/goida-win
 
-## Главное
+## Hub
 
-- [Главная](https://goida.win/): Telegram (прокси) или весь интернет (VPN)
-- [Telegram не работает](https://goida.win/telegram-ne-rabotaet/)
-- [Прокси для Telegram](https://goida.win/proxy-telegram/)
-- [VPN для Telegram](https://goida.win/vpn-telegram/)
-- [Не открывается YouTube](https://goida.win/vpn-youtube/)
+- [Home](https://goida.win/): Telegram (proxy) or the rest of the internet (VPN)
+- [Telegram not working](https://goida.win/telegram-ne-rabotaet/)
+- [Free Telegram proxy](https://goida.win/proxy-telegram/)
+- [VPN for Telegram](https://goida.win/vpn-telegram/)
+- [YouTube not opening](https://goida.win/vpn-youtube/)
 
-## Действия
+## Actions
 
-- Прокси: https://t.me/vnespiska
-- VPN в браузере: https://magnit.help/p2f9f6fab
-- VPN в Telegram: https://t.me/Geodema_bot?start=p_2f9f6fab
+- Proxy channel: https://t.me/vnespiska
+- VPN in browser: https://magnit.help/p2f9f6fab
+- VPN in Telegram: https://t.me/Geodema_bot?start=p_2f9f6fab
+- Promo: VNESPISKA (239 RUB)
+
+## Rule
+
+Proxy fixes Telegram only. YouTube and websites need VPN. Do not publish live tg://proxy URLs; they rotate.
