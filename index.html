@@ -16,8 +16,8 @@
 <meta name="theme-color" content="#F6F6F3">
 <link rel="canonical" href="https://goida.win/">
 <link rel="alternate" hreflang="ru" href="https://goida.win/">
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
-<link rel="apple-touch-icon" href="assets/img/favicon.png">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
@@ -34,27 +34,15 @@
 <meta name="twitter:description" content="Прокси в канале @vnespiska. VPN: magnit.help или бот Geodema.">
 <meta name="twitter:image" content="https://goida.win/assets/img/og-cover.jpg">
 <meta name="twitter:image:alt" content="GOIDA.WIN">
-<script type="text/javascript">
-(function(m,e,t,r,i,k,a){
-  m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-  m[i].l=1*new Date();
-  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112149595', 'ym');
-ym(112149595, 'init', {ssr:true, webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true, ecommerce:"dataLayer"});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/112149595" width="1" height="1" alt=""></div></noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KCKYM27XVJ"></script>
+<link rel="preload" href="assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css?v=5">
 <script>
+window.GOIDA_GA = "G-KCKYM27XVJ";
+window.GOIDA_YM = 112149595;
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-KCKYM27XVJ');
+window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
 </script>
-<link rel="preload" href="assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/golos.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css">
-<link rel="stylesheet" href="css/style.css?v=4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -168,7 +156,7 @@ gtag('config', 'G-KCKYM27XVJ');
         </a>
       </div>
       <button type="button" id="goida-shout" class="goida-btn" data-track="goida_click" aria-label="ГОЙДА">ГОЙДА</button>
-      <audio id="goida-audio" src="assets/audio/goida.mp3" preload="auto"></audio>
+      <audio id="goida-audio" src="assets/audio/goida.mp3" preload="none"></audio>
     </section>
 
     <section class="situations" aria-label="Что не работает">
@@ -268,6 +256,7 @@ gtag('config', 'G-KCKYM27XVJ');
 <nav class="sticky" aria-label="VPN" hidden>
   <a class="btn btn-fill" href="https://magnit.help/p2f9f6fab" data-track="sticky_vpn_click" data-utm-content="sticky_vpn" data-utm-campaign="hub">ПОДКЛЮЧИТЬ VPN → 239 ₽</a>
 </nav>
-<script src="js/app.js?v=4"></script>
+<script src="js/app.js?v=5" defer></script>
+<noscript><div><img src="https://mc.yandex.ru/watch/112149595" width="1" height="1" alt=""></div></noscript>
 </body>
 </html>

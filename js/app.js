@@ -70,36 +70,6 @@
     track(el.getAttribute("data-track"));
   });
 
-  function linksFrom(slot) {
-    var q = "server=" + slot.server + "&port=" + slot.port + "&secret=" + slot.secret;
-    return {
-      tg: slot.tg_link || "tg://proxy?" + q,
-      https: slot.https_link || "https://t.me/proxy?" + q
-    };
-  }
-
-  function applySlot(slot) {
-    if (!slot || !slot.server || !slot.port || !slot.secret) return;
-    var built = linksFrom(slot);
-    var nodes = document.querySelectorAll("[data-proxy-slot]");
-    var n;
-    for (n = 0; n < nodes.length; n++) {
-      var el = nodes[n];
-      if (el.getAttribute("data-proxy-stub") === "1") continue;
-      var kind = el.getAttribute("data-proxy-kind") || "tg";
-      el.setAttribute("href", kind === "https" ? built.https : built.tg);
-    }
-  }
-
-  try {
-    fetch("data/proxy.json", { cache: "no-store" }).then(function (res) {
-      if (!res.ok) return null;
-      return res.json();
-    }).then(function (slot) {
-      if (slot) applySlot(slot);
-    }).catch(function () {});
-  } catch (err) {}
-
   var buttons = document.querySelectorAll("[data-copy]");
   var b;
   for (b = 0; b < buttons.length; b++) {
@@ -132,8 +102,47 @@
         }
       }
       shout.classList.remove("is-yell");
-      void shout.offsetWidth;
-      shout.classList.add("is-yell");
+      shout.style.animation = "none";
+      window.requestAnimationFrame(function () {
+        shout.style.animation = "";
+        shout.classList.add("is-yell");
+      });
     });
   }
+
+  var analyticsLoaded = false;
+  function loadAnalytics() {
+    if (analyticsLoaded) return;
+    analyticsLoaded = true;
+    var ymId = window.GOIDA_YM || 112149595;
+    var gaId = window.GOIDA_GA || "G-KCKYM27XVJ";
+    var metrika = document.createElement("script");
+    metrika.src = "https://mc.yandex.ru/metrika/tag.js?id=" + ymId;
+    metrika.async = true;
+    metrika.onload = function () {
+      if (typeof window.ym === "function") {
+        window.ym(ymId, "init", {
+          ssr: true,
+          webvisor: true,
+          clickmap: true,
+          accurateTrackBounce: true,
+          trackLinks: true,
+          ecommerce: "dataLayer"
+        });
+      }
+    };
+    document.head.appendChild(metrika);
+    var ga = document.createElement("script");
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=" + gaId;
+    ga.async = true;
+    ga.onload = function () {
+      gtag("js", new Date());
+      gtag("config", gaId);
+    };
+    document.head.appendChild(ga);
+  }
+  ["click", "scroll", "touchstart", "keydown"].forEach(function (name) {
+    window.addEventListener(name, loadAnalytics, { once: true, passive: true });
+  });
+  window.setTimeout(loadAnalytics, 12000);
 })();
