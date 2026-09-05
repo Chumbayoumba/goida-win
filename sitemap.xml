@@ -2,32 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://goida.win/</loc>
-    <lastmod>2026-09-01T18:55:00+00:00</lastmod>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://goida.win/telegram-ne-rabotaet/</loc>
-    <lastmod>2026-09-01T18:55:00+00:00</lastmod>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://goida.win/proxy-telegram/</loc>
-    <lastmod>2026-09-01T18:55:00+00:00</lastmod>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://goida.win/vpn-telegram/</loc>
-    <lastmod>2026-09-01T18:55:00+00:00</lastmod>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://goida.win/vpn-youtube/</loc>
-    <lastmod>2026-09-01T18:55:00+00:00</lastmod>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://goida.win/vpn-whatsapp/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://goida.win/vpn-instagram/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://goida.win/vpn-dlya-iphone/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goida.win/vpn-dlya-android/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goida.win/vpn-dlya-kompyutera/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

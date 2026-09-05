@@ -1,6 +1,7 @@
 """Shipped-artifact tests for the goida.win landing (read files, do not reimplement)."""
 from __future__ import annotations
 
+
 import json
 import re
 import unittest
@@ -41,7 +42,8 @@ class GoidaStaticTests(unittest.TestCase):
         self.assertIn("SoftwareApplication", html)
         self.assertIn("yandex-verification", html)
         self.assertIn("112149595", html)
-        self.assertIn("G-YVMQ4T6HEQ", html)
+        self.assertIn("G-KCKYM27XVJ", html)
+        self.assertNotIn("G-YVMQ4T6HEQ", html)
         self.assertIn("goida.win", robots)
         self.assertIn("goida.win", sitemap)
         self.assertIn("application/ld+json", html)
@@ -59,7 +61,7 @@ class GoidaStaticTests(unittest.TestCase):
 
     def test_visual_motifs_and_modern_cyrillic(self) -> None:
         html = read("index.html")
-        css = read("css/style.css") + read("css/fonts.css")
+        css = read("css/style.css")
         self.assertTrue(
             "флаг" in html.lower() or "tricolor" in html.lower() or "flag-ru" in html,
             "Russian flag motif missing",
@@ -83,6 +85,9 @@ class GoidaStaticTests(unittest.TestCase):
         self.assertNotIn("process.exit", js)
         self.assertIn("reachGoal", js)
         self.assertIn("audio.play", js)
+        self.assertIn("preventDefault", js)
+        self.assertNotIn("scrollIntoView", js)
+        self.assertNotIn('"#choice"', js)
 
     def test_funnel_payload_matches_copy(self) -> None:
         data = json.loads(read("data/funnel.json"))
@@ -109,13 +114,22 @@ class GoidaStaticTests(unittest.TestCase):
         self.assertRegex(html, r"<h2[^>]*>Частые вопросы</h2>")
         self.assertGreaterEqual(html.count("<details"), 6)
         self.assertLessEqual(html.count("<details"), 8)
+        sit = html.split('class="sit"', 1)[1].split("</ul>", 1)[0]
+        self.assertLessEqual(sit.count("<li"), 3)
+        self.assertEqual(sit.lower().count("telegram"), 1)
+        self.assertNotIn("Telegram не подключается", sit)
+        self.assertNotIn("Telegram не грузится", sit)
+        self.assertNotIn("Нужен только Telegram", sit)
 
     def test_goida_is_choice_cta(self) -> None:
         html = read("index.html")
         css = read("css/style.css")
         js = read("js/app.js")
         self.assertIn("ГОЙДА", html)
-        self.assertRegex(html, r'<a[^>]+href="#choice"[^>]*>[\s\S]*ГОЙДА')
+        self.assertRegex(html, r'<button[^>]+id="goida-shout"')
+        self.assertIn('type="button"', html)
+        self.assertNotRegex(html, r'<a[^>]+id="goida-shout"')
+        self.assertNotRegex(html, r'id="goida-shout"[^>]*href=')
         self.assertIn("goida_click", html + js)
         self.assertIn("goida_shout", html + js)
         self.assertNotRegex(html, r'<img[^>]+(goida|shout)[^>]+\.(jpg|png|webp)', re.I)
@@ -141,6 +155,26 @@ class GoidaStaticTests(unittest.TestCase):
                 "YouTube",
                 "VPN",
             ),
+            "vpn-whatsapp/index.html": (
+                "WhatsApp",
+                "VPN",
+            ),
+            "vpn-instagram/index.html": (
+                "Instagram",
+                "VPN",
+            ),
+            "vpn-dlya-iphone/index.html": (
+                "iPhone",
+                "VPN",
+            ),
+            "vpn-dlya-android/index.html": (
+                "Android",
+                "VPN",
+            ),
+            "vpn-dlya-kompyutera/index.html": (
+                "компьютера",
+                "VPN",
+            ),
         }
         hub = read("index.html")
         for rel, (h1_bit, body_bit) in pages.items():
@@ -154,6 +188,16 @@ class GoidaStaticTests(unittest.TestCase):
             self.assertGreaterEqual(html.count("<h2"), 3)
             self.assertIn("t.me/vnespiska", html)
             self.assertTrue("magnit.help" in html or "Geodema_bot" in html)
+            outbound = re.findall(
+                r'href="(https://(?:t\.me|magnit\.help)[^"]+)"',
+                html,
+            )
+            self.assertGreaterEqual(len(outbound), 2, rel)
+            for href in outbound:
+                self.assertIn("utm_source=goida", href, href)
+                self.assertIn("utm_medium=site", href, href)
+                self.assertIn("utm_campaign=", href, href)
+                self.assertIn("utm_content=", href, href)
             slug = rel.split("/")[0]
             self.assertIn("/" + slug + "/", hub)
 
@@ -166,6 +210,11 @@ class GoidaStaticTests(unittest.TestCase):
             "https://goida.win/proxy-telegram/",
             "https://goida.win/vpn-telegram/",
             "https://goida.win/vpn-youtube/",
+            "https://goida.win/vpn-whatsapp/",
+            "https://goida.win/vpn-instagram/",
+            "https://goida.win/vpn-dlya-iphone/",
+            "https://goida.win/vpn-dlya-android/",
+            "https://goida.win/vpn-dlya-kompyutera/",
         }
         self.assertEqual(set(locs), expected)
         self.assertTrue(all("utm" not in loc for loc in locs))

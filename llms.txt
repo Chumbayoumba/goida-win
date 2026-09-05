@@ -12,6 +12,11 @@ GitHub: https://github.com/Chumbayoumba/goida-win
 - [Free Telegram proxy](https://goida.win/proxy-telegram/)
 - [VPN for Telegram](https://goida.win/vpn-telegram/)
 - [YouTube not opening](https://goida.win/vpn-youtube/)
+- [WhatsApp not working](https://goida.win/vpn-whatsapp/)
+- [Instagram not working](https://goida.win/vpn-instagram/)
+- [VPN for iPhone](https://goida.win/vpn-dlya-iphone/)
+- [VPN for Android](https://goida.win/vpn-dlya-android/)
+- [VPN for Windows/macOS](https://goida.win/vpn-dlya-kompyutera/)
 
 ## Actions
 
