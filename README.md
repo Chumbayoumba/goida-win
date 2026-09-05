@@ -46,6 +46,11 @@ GOIDA.WIN это поисковая витрина и развилка. Акту
 | [/proxy-telegram/](https://goida.win/proxy-telegram/) | прокси для Telegram бесплатно |
 | [/vpn-telegram/](https://goida.win/vpn-telegram/) | VPN для Telegram, VPN бот |
 | [/vpn-youtube/](https://goida.win/vpn-youtube/) | не открывается YouTube, VPN YouTube |
+| [/vpn-whatsapp/](https://goida.win/vpn-whatsapp/) | не работает WhatsApp, VPN для WhatsApp |
+| [/vpn-instagram/](https://goida.win/vpn-instagram/) | Instagram не работает, VPN для Instagram |
+| [/vpn-dlya-iphone/](https://goida.win/vpn-dlya-iphone/) | VPN для iPhone, как включить VPN на айфоне |
+| [/vpn-dlya-android/](https://goida.win/vpn-dlya-android/) | VPN для Android, VPN на телефон |
+| [/vpn-dlya-kompyutera/](https://goida.win/vpn-dlya-kompyutera/) | VPN для компьютера, Windows, macOS |
 
 ## Быстрый старт
 
@@ -73,6 +78,7 @@ VPN. Инструкция: [не открывается YouTube](https://goida.w
 
 - `index.html` хаб
 - `telegram-ne-rabotaet/`, `proxy-telegram/`, `vpn-telegram/`, `vpn-youtube/`
+- `vpn-whatsapp/`, `vpn-instagram/`, `vpn-dlya-iphone/`, `vpn-dlya-android/`, `vpn-dlya-kompyutera/`
 - `sitemap.xml`, `robots.txt`, `llms.txt`, IndexNow
 - Метрика `112149595`, GA4 `G-KCKYM27XVJ`
 
