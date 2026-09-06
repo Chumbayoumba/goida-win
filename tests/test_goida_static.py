@@ -175,6 +175,22 @@ class GoidaStaticTests(unittest.TestCase):
                 "компьютера",
                 "VPN",
             ),
+            "blokirovka-telegram/index.html": (
+                "Telegram",
+                "прокси",
+            ),
+            "obhod-belyh-spiskov/index.html": (
+                "белых списков",
+                "VPN",
+            ),
+            "vpn-obhod-glushilok/index.html": (
+                "глушил",
+                "VPN",
+            ),
+            "goida-vpn/index.html": (
+                "Goida VPN",
+                "VPN",
+            ),
         }
         hub = read("index.html")
         for rel, (h1_bit, body_bit) in pages.items():
@@ -215,6 +231,10 @@ class GoidaStaticTests(unittest.TestCase):
             "https://goida.win/vpn-dlya-iphone/",
             "https://goida.win/vpn-dlya-android/",
             "https://goida.win/vpn-dlya-kompyutera/",
+            "https://goida.win/blokirovka-telegram/",
+            "https://goida.win/obhod-belyh-spiskov/",
+            "https://goida.win/vpn-obhod-glushilok/",
+            "https://goida.win/goida-vpn/",
         }
         self.assertEqual(set(locs), expected)
         self.assertTrue(all("utm" not in loc for loc in locs))

@@ -34,6 +34,8 @@ GOIDA.WIN это поисковая витрина и развилка. Акту
 | Telegram не работает / не подключается / не грузится | Бесплатный MTProto-прокси | [@vnespiska](https://t.me/vnespiska) |
 | Прокси для Telegram бесплатно | Канал с актуальным адресом | [goida.win/proxy-telegram](https://goida.win/proxy-telegram/) |
 | YouTube не открывается, сайты не грузятся | VPN, 239 ₽ код `VNESPISKA` | [кабинет](https://magnit.help/p2f9f6fab) или [бот](https://t.me/Geodema_bot?start=p_2f9f6fab) |
+| Открываются только Госуслуги и банки, остальное как 2G | Белые списки: VPN с маскировкой под HTTPS | [goida.win/obhod-belyh-spiskov](https://goida.win/obhod-belyh-spiskov/) |
+| Telegram заблокировали, сбои по всей России | Хронология и обход | [goida.win/blokirovka-telegram](https://goida.win/blokirovka-telegram/) |
 
 Прокси открывает только Telegram. YouTube и сайты прокси не лечит.
 
@@ -42,8 +44,12 @@ GOIDA.WIN это поисковая витрина и развилка. Акту
 | URL | Запрос |
 |---|---|
 | [goida.win](https://goida.win/) | не работает Telegram или сайты |
-| [/telegram-ne-rabotaet/](https://goida.win/telegram-ne-rabotaet/) | Telegram не работает, что делать |
-| [/proxy-telegram/](https://goida.win/proxy-telegram/) | прокси для Telegram бесплатно |
+| [/blokirovka-telegram/](https://goida.win/blokirovka-telegram/) | блокировка Telegram 2026, Telegram заблокировали, как обойти |
+| [/telegram-ne-rabotaet/](https://goida.win/telegram-ne-rabotaet/) | Telegram не работает сегодня, что делать |
+| [/proxy-telegram/](https://goida.win/proxy-telegram/) | прокси для Telegram бесплатно, рабочий прокси на сегодня |
+| [/obhod-belyh-spiskov/](https://goida.win/obhod-belyh-spiskov/) | обход белых списков, работают только Госуслуги |
+| [/vpn-obhod-glushilok/](https://goida.win/vpn-obhod-glushilok/) | VPN обход глушилок, прокси от глушилок |
+| [/goida-vpn/](https://goida.win/goida-vpn/) | goida vpn, гойда впн, goida-vpn-configs |
 | [/vpn-telegram/](https://goida.win/vpn-telegram/) | VPN для Telegram, VPN бот |
 | [/vpn-youtube/](https://goida.win/vpn-youtube/) | не открывается YouTube, VPN YouTube |
 | [/vpn-whatsapp/](https://goida.win/vpn-whatsapp/) | не работает WhatsApp, VPN для WhatsApp |
@@ -77,14 +83,15 @@ VPN. Инструкция: [не открывается YouTube](https://goida.w
 Статический HTML на GitHub Pages, домен `goida.win`, Cloudflare HTTPS. Без SPA: title, H1 и FAQ видны краулеру без JS.
 
 - `index.html` хаб
-- `telegram-ne-rabotaet/`, `proxy-telegram/`, `vpn-telegram/`, `vpn-youtube/`
+- `blokirovka-telegram/`, `telegram-ne-rabotaet/`, `proxy-telegram/`, `vpn-telegram/`, `vpn-youtube/`
+- `obhod-belyh-spiskov/`, `vpn-obhod-glushilok/`, `goida-vpn/`
 - `vpn-whatsapp/`, `vpn-instagram/`, `vpn-dlya-iphone/`, `vpn-dlya-android/`, `vpn-dlya-kompyutera/`
 - `sitemap.xml`, `robots.txt`, `llms.txt`, IndexNow
 - Метрика `112149595`, GA4 `G-KCKYM27XVJ`
 
 ## Keywords / теги
 
-`telegram proxy`, `mtproto`, `mtproto proxy`, `free telegram proxy`, `telegram не работает`, `прокси телеграм бесплатно`, `vpn telegram`, `vpn youtube`, `не открывается youtube`, `github pages`.
+`telegram proxy`, `mtproto`, `mtproto proxy`, `free telegram proxy`, `telegram не работает`, `блокировка telegram 2026`, `прокси телеграм бесплатно`, `обход белых списков`, `впн обход глушилок`, `goida vpn`, `гойда впн`, `vless reality`, `vpn telegram`, `vpn youtube`, `не открывается youtube`, `github pages`.
 
 ## Лицензия
 
