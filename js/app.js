@@ -110,12 +110,14 @@
     });
   }
 
-  var analyticsLoaded = false;
-  function loadAnalytics() {
-    if (analyticsLoaded) return;
-    analyticsLoaded = true;
+  // Metrika loads immediately: gating it behind interaction or a 12s timeout silently
+  // dropped every bounced session, which made bounce rate and visit counts fictional and
+  // starved Yandex of the counter data it uses to crawl a site with no backlinks.
+  var metrikaLoaded = false;
+  function loadMetrika() {
+    if (metrikaLoaded) return;
+    metrikaLoaded = true;
     var ymId = window.GOIDA_YM || 112149595;
-    var gaId = window.GOIDA_GA || "G-KCKYM27XVJ";
     var metrika = document.createElement("script");
     metrika.src = "https://mc.yandex.ru/metrika/tag.js?id=" + ymId;
     metrika.async = true;
@@ -132,6 +134,13 @@
       }
     };
     document.head.appendChild(metrika);
+  }
+
+  var gaLoaded = false;
+  function loadGA() {
+    if (gaLoaded) return;
+    gaLoaded = true;
+    var gaId = window.GOIDA_GA || "G-KCKYM27XVJ";
     var ga = document.createElement("script");
     ga.src = "https://www.googletagmanager.com/gtag/js?id=" + gaId;
     ga.async = true;
@@ -141,8 +150,10 @@
     };
     document.head.appendChild(ga);
   }
+
+  loadMetrika();
   ["click", "scroll", "touchstart", "keydown"].forEach(function (name) {
-    window.addEventListener(name, loadAnalytics, { once: true, passive: true });
+    window.addEventListener(name, loadGA, { once: true, passive: true });
   });
-  window.setTimeout(loadAnalytics, 12000);
+  window.setTimeout(loadGA, 12000);
 })();
