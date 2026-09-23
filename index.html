@@ -161,9 +161,10 @@ window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(ar
       <audio id="goida-audio" src="assets/audio/goida.mp3" preload="none"></audio>
     </section>
 
-    <section class="notice status" aria-label="Сейчас">
-      <p class="kicker">6 сентября 2026</p>
-      <p>Telegram по всей России работает со сбоями с 4 сентября. Прокси из канала возвращает чат, VPN возвращает остальное. Хронология и что делать: <a href="/blokirovka-telegram/">блокировка Telegram в 2026</a>. Если открываются только Госуслуги и банки, это <a href="/obhod-belyh-spiskov/">белые списки</a>.</p>
+    <section class="notice status" id="sboi-seychas" aria-label="Сбои интернета прямо сейчас">
+      <p class="kicker">Сбои в реальном времени</p>
+      <iframe data-sfy src="https://shutdown.fyi/widget/now/?src=goida&amp;theme=light" title="Интернет в России сейчас — shutdown.fyi" loading="lazy" width="100%" height="290" style="border:0;display:block;width:100%;margin:0 0 12px;"></iframe><script>addEventListener("message",function(e){if(e.origin==="https://shutdown.fyi"&&e.data&&e.data.type==="sfy-widget-height"){document.querySelectorAll("iframe[data-sfy]").forEach(function(f){if(f.contentWindow===e.source)f.style.height=e.data.h+"px"})}})</script>
+      <p>Что сейчас не работает по всей России, видно на независимом мониторинге: <a href="https://shutdown.fyi/?utm_source=goida&amp;utm_medium=referral&amp;utm_campaign=live_home" target="_blank" rel="noopener">shutdown.fyi — сбои интернета в реальном времени</a>. Telegram с 4 сентября работает со сбоями: <a href="/blokirovka-telegram/">блокировка Telegram в 2026</a>. Если открываются только Госуслуги и банки, это <a href="/obhod-belyh-spiskov/">белые списки</a>.</p>
     </section>
 
     <section class="situations" aria-label="Что не работает">
