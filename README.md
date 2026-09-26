@@ -4,6 +4,7 @@
 [![Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://goida.win/)
 [![Proxy](https://img.shields.io/badge/Telegram-@vnespiska-26A5E4)](https://t.me/vnespiska)
 [![VPN](https://img.shields.io/badge/VPN-239₽-c41e3a)](https://goida.win/#vpn)
+[![WEB Proxy](https://img.shields.io/badge/NEW-WEB%20Proxy-7c3aed?logo=telegram)](https://vnespiska.win/webproxy/)
 [![lang](https://img.shields.io/badge/lang-ru%20%7C%20en%20%7C%20uk%20%7C%20fa%20%7C%20tr%20%7C%20es%20%7C%20zh%20%7C%20ar-informational)](#languages)
 
 <p align="center">
@@ -15,6 +16,8 @@
 Не работает Telegram, не подключается, не грузится? Нужен **бесплатный прокси для Telegram** (MTProto). Не открывается YouTube, сайты, WhatsApp? Нужен **VPN**.
 
 GOIDA.WIN это поисковая витрина и развилка. Актуальный прокси живёт в канале, не в git (адреса меняются).
+
+**🆕 WEB-прокси для Telegram Desktop 7.1.1+:** трафик Telegram идёт через обычный HTTPS, как у сайта, — заблокировать сложнее. Бесплатно: [подключить](https://vnespiska.win/webproxy/) или открой в Telegram Desktop `tg://webproxy?server=free.vnespiska.win&secret=9fc8d7d1aeee614bd5fa3b760da44dd3`. Инструкция: [goida.win/proxy-telegram/#webproxy](https://goida.win/proxy-telegram/#webproxy).
 
 ## Languages
 
