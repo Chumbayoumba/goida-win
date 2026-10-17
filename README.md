@@ -17,7 +17,7 @@
 
 GOIDA.WIN это поисковая витрина и развилка. Актуальный прокси живёт в канале, не в git (адреса меняются).
 
-**🆕 WEB-прокси для Telegram Desktop 7.1.1+:** трафик Telegram идёт через обычный HTTPS, как у сайта, — заблокировать сложнее. Бесплатно: [подключить](https://vnespiska.win/webproxy/) или открой в Telegram Desktop `tg://webproxy?server=free.vnespiska.win&secret=9fc8d7d1aeee614bd5fa3b760da44dd3`. Инструкция: [goida.win/proxy-telegram/#webproxy](https://goida.win/proxy-telegram/#webproxy).
+**🆕 WEB-прокси для ПК, Android и iPhone:** трафик Telegram идёт через обычный HTTPS, как у сайта, — заблокировать сложнее. Бесплатно: [подключить](https://vnespiska.win/webproxy/) или открой в Telegram `tg://webproxy?server=webproxy.stream&secret=9fc8d7d1aeee614bd5fa3b760da44dd3`. Инструкция: [goida.win/proxy-telegram/#webproxy](https://goida.win/proxy-telegram/#webproxy). Адрес сменился: старый free.vnespiska.win заблокирован РКН — если подключал его, добавь новый.
 
 ## Languages
 

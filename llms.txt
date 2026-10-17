@@ -33,5 +33,5 @@ GitHub: https://github.com/Chumbayoumba/goida-win
 
 Proxy fixes Telegram only. YouTube and websites need VPN. Do not publish live tg://proxy URLs; they rotate.
 
-## WEB-прокси для Telegram Desktop
-- Бесплатный WEB-прокси (Telegram Desktop 7.1.1+, трафик через обычный HTTPS): `tg://webproxy?server=free.vnespiska.win&secret=9fc8d7d1aeee614bd5fa3b760da44dd3`. Инструкция: https://goida.win/proxy-telegram/#webproxy
+## WEB-прокси для ПК, Android и iPhone
+- Бесплатный WEB-прокси (Telegram на ПК, Android и iPhone — обнови приложение до последней версии; трафик через обычный HTTPS): `tg://webproxy?server=webproxy.stream&secret=9fc8d7d1aeee614bd5fa3b760da44dd3`. Инструкция: https://goida.win/proxy-telegram/#webproxy. Адрес сменился: старый free.vnespiska.win заблокирован РКН — если подключал его, добавь новый.
