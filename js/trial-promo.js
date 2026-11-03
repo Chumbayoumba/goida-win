@@ -3,7 +3,7 @@
   if (window.__trialPromo) return;
   window.__trialPromo = true;
   var URL = 'https://t.me/Geodema_bot?start=p_2f9f6fab';
-  var IMG = '/assets/trial-10rub.webp';
+  var IMG = '/assets/trial-10rub-phone.webp';
   var css =
     '.tp-bar{background:#161616;color:#fff;border-bottom:3px solid #ff7500;font:600 14px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;position:relative;z-index:50}' +
     '.tp-bar-in{max-width:1100px;margin:0 auto;padding:8px 14px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center}' +
